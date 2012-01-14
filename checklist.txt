@@ -1,0 +1,5 @@
+Go to Applications -> System Tools -> Bleachbit (as root) and select Localizations.  
+Go to Edit -> Preferences -> Languages and select English as the language to keep.
+Press the Delete button.
+
+There should be NOTHING left to delete.
