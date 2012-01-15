@@ -33,7 +33,7 @@ src = dir_develop + '/remove-languages/root_config_bleachbit/bleachbit.ini'
 dest = '/root/.config/bleachbit'
 shutil.copy (src, dest)
 
-os.system ('bleachbit cli --preset -d') # Executes BleachBit
+os.system ('bleachbit --preset -d') # Executes BleachBit
 
 
 print "FINISHED REMOVING LANGUAGES"
