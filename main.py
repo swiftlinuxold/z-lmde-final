@@ -26,14 +26,15 @@ import shutil
 print "========================"
 print "BEGIN REMOVING LANGUAGES"
 os.system('apt-get install -y bleachbit') # Add BleachBit
+os.system('bleachbit --sysinfo') # Creates /root/.config/bleachbit/bleachbit.ini
 
 # bleachbit.ini: BleachBit settings
 # Removes languages other than English and removes log files
 src = dir_develop + '/remove-languages/root_config_bleachbit/bleachbit.ini'
-dest = '/root/.config/bleachbit'
+dest = '/root/.config/bleachbit/bleachbit.ini'
 shutil.copy (src, dest)
 
-os.system ('bleachbit --preset -d') # Executes BleachBit
+os.system ('bleachbit --preset -d') # Executes BleachBit with the /root/.config/bleachbit/bleachbit.ini settings
 
 
 print "FINISHED REMOVING LANGUAGES"
