@@ -21,9 +21,19 @@ else:
 
 # Everything up to this point is common to all Python scripts called by shared-*.sh
 # =================================================================================
+import shutil
+
 print "========================"
 print "BEGIN REMOVING LANGUAGES"
+os.system('apt-get install -y bleachbit') # Add BleachBit
 
+# bleachbit.ini: BleachBit settings
+# Removes languages other than English and removes log files
+src = dir_develop + '/remove-languages/root_config_bleachbit/bleachbit.ini'
+dest = '/root/.config/bleachbit'
+shutil.copy (src, dest)
+
+os.system ('bleachbit cli --preset -d') # Executes BleachBit
 
 
 print "FINISHED REMOVING LANGUAGES"
