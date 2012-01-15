@@ -142,6 +142,7 @@ elim_dir ("zh_CN")
 elim_dir ("zh_HK")
 elim_dir ("zh_TW")
 
+# Remove packages mentioned in locales
 
 print "FINISHED REMOVING LANGUAGES"
 print "==========================="
