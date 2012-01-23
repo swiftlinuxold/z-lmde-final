@@ -145,17 +145,33 @@ elim_dir ("/usr/share/linuxmint/locale/zh_CN")
 elim_dir ("/usr/share/linuxmint/locale/zh_HK")
 elim_dir ("/usr/share/linuxmint/locale/zh_TW")
 
-# The following directories should be DELETED:
-# /home/(username)/.config/chromium 
-# /home/(username)/.mozilla
-# /home/(username)/.opera
-print "Deleting selected directories and files in /home"
-elim_dir ("/home/" + uname + "/.config/chromium")
-elim_dir ("/home/" + uname + "/.mozilla")
-elim_dir ("/home/" + uname + "/.opera")
+print "Removing *.deb files from /var/cache/apt/archives"
+os.system ('rm /var/cache/apt/archives/*.deb')
+
+print "Removing files from /var/cache/apt-xapian-index"
+os.system ('rm -r /var/cache/apt-xapian-index/*')
+
+print "Removing *.bin files from /var/cache/apt"
+os.system ('rm -r /var/cache/apt/*.bin')
+
+print "Removing files from /var/cache/apt/apt-file"
+os.system ('rm -r /var/cache/apt/apt-file/*')
 
 # The following file should be deleted: /home/(username)/.linuxmint/mintMenu/apt.cache
 os.remove ("/home/" + uname + "/.linuxmint/mintMenu/apt.cache")
+
+# Make sure everything in the /home/(username) directory is owned by the (username)
+print "Make all files in /home/(username) owned by (username)"
+if (is_chroot):
+    os.system ('chown -R mint:users ' + dir_user)
+else
+    os.system ('chown -R ' + uname + ':users ' + dir_user)
+
+exit 0
+
+
+
+
 
 
 
