@@ -26,8 +26,8 @@ else:
 
 import shutil
 
-print "======================================="
-print "BEGIN REMOVING LANGUAGES AND /VAR FILES"
+print "================================================="
+print "BEGIN WRAPPING UP THE LMDE TO SWIFT LINUX PROCESS"
 os.system('apt-get install -y bleachbit') # Add BleachBit
 os.system('bleachbit --sysinfo') # Creates /root/.config/bleachbit/bleachbit.ini
 
@@ -164,8 +164,8 @@ if (is_chroot):
 else
     os.system ('chown -R ' + uname + ':users ' + dir_user)
 
-print "FINISHED REMOVING LANGUAGES AND /VAR FILES"
-print "=========================================="
+print "FINISHED WRAPPING UP THE LMDE TO SWIFT LINUX PROCESS"
+print "===================================================="
 
 exit 0
 
