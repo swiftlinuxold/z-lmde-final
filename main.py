@@ -26,8 +26,8 @@ else:
 
 import shutil
 
-print "========================"
-print "BEGIN REMOVING LANGUAGES"
+print "======================================="
+print "BEGIN REMOVING LANGUAGES AND /VAR FILES"
 os.system('apt-get install -y bleachbit') # Add BleachBit
 os.system('bleachbit --sysinfo') # Creates /root/.config/bleachbit/bleachbit.ini
 
@@ -157,9 +157,6 @@ os.system ('rm -r /var/cache/apt/*.bin')
 print "Removing files from /var/cache/apt/apt-file"
 os.system ('rm -r /var/cache/apt/apt-file/*')
 
-# The following file should be deleted: /home/(username)/.linuxmint/mintMenu/apt.cache
-os.remove ("/home/" + uname + "/.linuxmint/mintMenu/apt.cache")
-
 # Make sure everything in the /home/(username) directory is owned by the (username)
 print "Make all files in /home/(username) owned by (username)"
 if (is_chroot):
@@ -167,14 +164,8 @@ if (is_chroot):
 else
     os.system ('chown -R ' + uname + ':users ' + dir_user)
 
+print "FINISHED REMOVING LANGUAGES AND /VAR FILES"
+print "=========================================="
+
 exit 0
 
-
-
-
-
-
-
-
-print "FINISHED REMOVING LANGUAGES"
-print "==========================="
