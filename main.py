@@ -33,7 +33,7 @@ os.system('bleachbit --sysinfo') # Creates /root/.config/bleachbit/bleachbit.ini
 
 # bleachbit.ini: BleachBit settings
 # Removes languages other than English and removes log files
-src = dir_develop + '/remove-languages/root_config_bleachbit/bleachbit.ini'
+src = dir_develop + '/final/root_config_bleachbit/bleachbit.ini'
 dest = '/root/.config/bleachbit/bleachbit.ini'
 shutil.copy (src, dest)
 
@@ -161,11 +161,10 @@ os.system ('rm -r /var/cache/apt/apt-file/*')
 print "Make all files in /home/(username) owned by (username)"
 if (is_chroot):
     os.system ('chown -R mint:users ' + dir_user)
-else
+else:
     os.system ('chown -R ' + uname + ':users ' + dir_user)
 
 print "FINISHED WRAPPING UP THE LMDE TO SWIFT LINUX PROCESS"
 print "===================================================="
 
-exit 0
 
