@@ -37,7 +37,10 @@ src = dir_develop + '/final/root_config_bleachbit/bleachbit.ini'
 dest = '/root/.config/bleachbit/bleachbit.ini'
 shutil.copy (src, dest)
 
-os.system ('bleachbit --preset -d') # Executes BleachBit with the /root/.config/bleachbit/bleachbit.ini settings
+print ('BEGIN DELETING LANGUAGES OTHER THAN ENGLISH')
+print ('NOTE: The output is suppressed due to its overwhelming volume.')
+os.system ('bleachbit --preset -d > /dev/null') # Executes BleachBit with the /root/.config/bleachbit/bleachbit.ini settings
+print ('FINISHED DELETING LANGUAGES OTHER THAN ENGLISH')
 
 # Delete all languages other than English and template from /usr/share/linuxmint/locale
 def elim_dir (dir_to_elim): 
