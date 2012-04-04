@@ -1,5 +1,15 @@
 Go to Applications -> System Tools -> Bleachbit (as root) and select Localizations.  
 Go to Edit -> Preferences -> Languages and select English as the language to keep.
-Press the Delete button.
+Press the Delete button.  There should be NOTHING left to delete.
 
-There should be NOTHING left to delete.
+The /usr/share/linuxmint/locale directory should only contain a templates 
+folder and folders for English.  Folders for all other languages should be
+gone.
+
+There should be no *.deb files in /var/cache/apt/archives.
+
+The /var/cache/apt-xapian-index should be empty.
+
+There should be no *.bin files in /var/cache/apt/.
+
+There /var/cache/apt/apt-file directory should be empty.
