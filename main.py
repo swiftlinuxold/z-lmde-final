@@ -163,7 +163,7 @@ os.system ('echo Removing files from /var/cache/apt/apt-file')
 os.system ('rm -r /var/cache/apt/apt-file/*')
 
 # Make sure everything in the /home/(username) directory is owned by the (username)
-os.system ('echo Make all files in /home/(username) owned by (username)')
+os.system ('echo Make all files in /home/user are owned by user')
 if (is_chroot):
     os.system ('chown -R mint:users ' + dir_user)
 else:
