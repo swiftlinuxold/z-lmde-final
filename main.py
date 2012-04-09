@@ -39,17 +39,17 @@ src = dir_develop + '/final/root_config_bleachbit/bleachbit.ini'
 dest = '/root/.config/bleachbit/bleachbit.ini'
 shutil.copy (src, dest)
 
-print ('BEGIN DELETING LANGUAGES OTHER THAN ENGLISH')
-print ('NOTE: The output is suppressed due to its overwhelming volume.')
+os.system ('echo BEGIN DELETING LANGUAGES OTHER THAN ENGLISH')
+os.system ('echo NOTE: The output is suppressed due to its overwhelming volume.')
 os.system ('bleachbit --preset -d > /dev/null') # Executes BleachBit with the /root/.config/bleachbit/bleachbit.ini settings
-print ('FINISHED DELETING LANGUAGES OTHER THAN ENGLISH')
+os.system ('echo FINISHED DELETING LANGUAGES OTHER THAN ENGLISH')
 
 # Delete all languages other than English and template from /usr/share/linuxmint/locale
 def elim_dir (dir_to_elim): 
     if (os.path.exists(dir_to_elim)):
         shutil.rmtree (dir_to_elim)
 		
-print "Deleting languages other than English from /usr/share/linuxmint/locale"
+os.system ('echo Deleting languages other than English from /usr/share/linuxmint/locale')
 elim_dir ("/usr/share/linuxmint/locale/af")
 elim_dir ("/usr/share/linuxmint/locale/am")		
 elim_dir ("/usr/share/linuxmint/locale/ar")
@@ -150,26 +150,24 @@ elim_dir ("/usr/share/linuxmint/locale/zh_CN")
 elim_dir ("/usr/share/linuxmint/locale/zh_HK")
 elim_dir ("/usr/share/linuxmint/locale/zh_TW")
 
-print "Removing *.deb files from /var/cache/apt/archives"
+os.system ('echo Removing *.deb files from /var/cache/apt/archives')
 os.system ('rm /var/cache/apt/archives/*.deb')
 
-print "Removing files from /var/cache/apt-xapian-index"
+os.system ('echo Removing files from /var/cache/apt-xapian-index')
 os.system ('rm -r /var/cache/apt-xapian-index/*')
 
-print "Removing *.bin files from /var/cache/apt"
+os.system ('echo Removing *.bin files from /var/cache/apt')
 os.system ('rm -r /var/cache/apt/*.bin')
 
-print "Removing files from /var/cache/apt/apt-file"
+os.system ('echo Removing files from /var/cache/apt/apt-file')
 os.system ('rm -r /var/cache/apt/apt-file/*')
 
 # Make sure everything in the /home/(username) directory is owned by the (username)
-print "Make all files in /home/(username) owned by (username)"
+os.system ('echo Make all files in /home/(username) owned by (username)')
 if (is_chroot):
     os.system ('chown -R mint:users ' + dir_user)
 else:
     os.system ('chown -R ' + uname + ':users ' + dir_user)
-
-
 
 os.system ('echo FINISHED THE LAST STAGE OF THE shared SCRIPT')
 os.system ('echo ============================================')
